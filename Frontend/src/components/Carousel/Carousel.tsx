@@ -1,3 +1,4 @@
+import NikeXPro from "../../assets/products/NikeAir5.png";
 import type { FC } from 'react'
 const Carousel:FC = () => {
   return (
@@ -12,7 +13,7 @@ const Carousel:FC = () => {
         </div>
         </div>
             <div>
-                <img className='h-[221] w-[442]' src={"/src/assets/products/NikeAir5.png"} alt="" />
+                <img className='h-[221] w-[442]' src={NikeXPro} alt="" />
             </div>
         
     </div>
