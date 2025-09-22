@@ -1,9 +1,17 @@
+// Import images from src so Vite includes them in the build
+import NikeAirMax from "../../assets/products/NikeAirMax.png";
+import bagW from "../../assets/products/bagW.png";
+import SmallBag from "../../assets/products/SmallBag.png";
+import NikeAir2 from "../../assets/products/NikeAir2.png";
+import NikeAir3 from "../../assets/products/NikeAir3.png";
+import NikeXPro from "../../assets/products/NikeXPro.png";
+
 // Sample product data
 export const sampleProducts = [
     {
       id: "1",
       name: "Nike Air Max 270 React",
-      image: "/src/assets/products/NikeAirMax.png",
+      image: NikeAirMax,
       currentPrice: 299.43,
       originalPrice: 534.33,
       discount: 24,
@@ -13,7 +21,7 @@ export const sampleProducts = [
     {
       id: "2",
       name: "Nike Air Max 270 React",
-      image: "/src/assets/products/bagW.png",
+      image: bagW,
       currentPrice: 299.43,
       originalPrice: 534.33,
       discount: 24,
@@ -23,7 +31,7 @@ export const sampleProducts = [
     {
       id: "3",
       name: "Nike Air Max 270 React",
-      image: "/src/assets/products/SmallBag.png",
+      image: SmallBag,
       currentPrice: 299.43,
       originalPrice: 534.33,
       discount: 24,
@@ -33,7 +41,7 @@ export const sampleProducts = [
     {
       id: "4",
       name: "Nike Air Max 270 React",
-      image: "/src/assets/products/NikeAir2.png",
+      image: NikeAir2,
       currentPrice: 299.43,
       originalPrice: 534.33,
       discount: 24,
@@ -43,7 +51,7 @@ export const sampleProducts = [
     {
       id: "5",
       name: "Nike Air Max 270 React",
-      image: "/src/assets/products/NikeAir3.png",
+      image: NikeAir3,
       currentPrice: 299.43,
       originalPrice: 534.33,
       discount: 24,
@@ -53,7 +61,7 @@ export const sampleProducts = [
     {
       id: "6",
       name: "Nike Air Max 270 React",
-      image: "/src/assets/products/NikeXPro.png",
+      image: NikeXPro,
       currentPrice: 299.43,
       originalPrice: 534.33,
       discount: 24,
@@ -63,7 +71,7 @@ export const sampleProducts = [
     {
       id: "6",
       name: "Nike Air Max 270 React",
-      image: "/src/assets/products/NikeXPro.png",
+      image: NikeXPro,
       currentPrice: 299.43,
       originalPrice: 534.33,
       discount: 24,
@@ -73,7 +81,7 @@ export const sampleProducts = [
     {
       id: "6",
       name: "Nike Air Max 270 React",
-      image: "/src/assets/products/NikeXPro.png",
+      image: NikeXPro,
       currentPrice: 299.43,
       originalPrice: 534.33,
       discount: 24,
@@ -83,7 +91,7 @@ export const sampleProducts = [
     {
       id: "6",
       name: "Nike Air Max 270 React",
-      image: "/src/assets/products/NikeXPro.png",
+      image: NikeXPro,
       currentPrice: 299.43,
       originalPrice: 534.33,
       discount: 24,
