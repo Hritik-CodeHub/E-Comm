@@ -5,7 +5,7 @@ const Sidebar: FC = () => {
   // Mock filter states
   const [price, setPrice] = useState<[number, number]>([13.99, 25.99]);
   const [selectedColor, setSelectedColor] = useState<string>("blue");
-  
+  console.log(selectedColor);
 
   return (
     <aside className="w-64 space-y-4 hidden lg:block">
