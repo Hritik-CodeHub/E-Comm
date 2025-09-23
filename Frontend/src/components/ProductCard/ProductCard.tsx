@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaStar, FaRegStar, FaStarHalfAlt } from 'react-icons/fa';
 
 interface ProductCardProps {
   id: string;
@@ -9,6 +10,7 @@ interface ProductCardProps {
   discount: number;
   rating: number;
   isHot?: boolean;
+  selectedColor?: string | null;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({
@@ -18,63 +20,28 @@ const ProductCard: React.FC<ProductCardProps> = ({
   originalPrice,
   discount,
   rating,
-  isHot = false
+  isHot = false,
+  selectedColor = null
 }) => {
+
+  console.log(selectedColor);
+
   // Function to render star rating
   const renderStars = (rating: number) => {
-    const stars = [];
+    const stars = [] as React.ReactNode[];
     const fullStars = Math.floor(rating);
     const hasHalfStar = rating % 1 !== 0;
+    const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
 
-    // Full stars
     for (let i = 0; i < fullStars; i++) {
-      stars.push(
-        <svg
-          key={i}
-          className="w-4 h-4 text-yellow-400 fill-current"
-          viewBox="0 0 20 20"
-        >
-          <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-        </svg>
-      );
+      stars.push(<FaStar key={`full-${i}`} size={16} className="text-yellow-400" />);
     }
-
-    // Half star
     if (hasHalfStar) {
-      stars.push(
-        <div key="half" className="relative w-4 h-4">
-          <svg
-            className="w-4 h-4 text-gray-300 fill-current"
-            viewBox="0 0 20 20"
-          >
-            <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-          </svg>
-          <div className="absolute top-0 left-0 w-2 h-4 overflow-hidden">
-            <svg
-              className="w-4 h-4 text-yellow-400 fill-current"
-              viewBox="0 0 20 20"
-            >
-              <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-            </svg>
-          </div>
-        </div>
-      );
+      stars.push(<FaStarHalfAlt key="half" size={16} className="text-yellow-400" />);
     }
-
-    // Empty stars
-    const emptyStars = 5 - Math.ceil(rating);
     for (let i = 0; i < emptyStars; i++) {
-      stars.push(
-        <svg
-          key={`empty-${i}`}
-          className="w-4 h-4 text-gray-300 fill-current"
-          viewBox="0 0 20 20"
-        >
-          <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-        </svg>
-      );
+      stars.push(<FaRegStar key={`empty-${i}`} size={16} className="text-gray-300" />);
     }
-
     return stars;
   };
 
@@ -90,7 +57,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
       )}
 
       {/* Product Image */}
-      <div className="relative overflow-hidden bg-white h-64 flex items-center justify-center">
+      <div className="relative overflow-hidden h-64 flex items-center justify-center" >
         <img
           src={image}
           alt={name}
@@ -101,20 +68,20 @@ const ProductCard: React.FC<ProductCardProps> = ({
       {/* Product Info */}
       <div className="p-4 text-center">
         {/* Product Name */}
-        <h3 className="product-name mb-2">
+        <h3 className="text-[#223263]  font-bold text-lg font-Poppins  mb-2">
           {name}
         </h3>
 
         {/* Rating */}
-        <div className="flex items-center justify-center mb-3">
-          <div className="flex items-center">
+        <div className="flex items-center justify-center  mb-3">
+          <div className="flex items-center gap-2">
             {renderStars(rating)}
           </div>
         </div>
 
         {/* Pricing */}
         <div className="flex items-center justify-center space-x-2">
-          <span className="product-price">
+          <span className="text-[#40BFFF]  font-bold text-lg font-Poppins">
             ${currentPrice.toFixed(2).replace('.', ',')}
           </span>
           <span className="text-sm text-gray-500 line-through">

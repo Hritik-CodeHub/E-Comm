@@ -44,6 +44,8 @@ const FilterPanel: FC<FilterPanelProps> = ({ totalItems, sortBy, onChangeSortBy,
                     <option value={36}>36</option>
                 </select>
             </div>
+
+            {/* Color filter removed; handled in Sidebar */}
         </div>
     );
 
@@ -104,6 +106,7 @@ const FilterPanel: FC<FilterPanelProps> = ({ totalItems, sortBy, onChangeSortBy,
                             <option value={36}>36</option>
                         </select>
                     </div>
+                    {/* Color filter removed in mobile too */}
                 </div>
             )}
         </div>

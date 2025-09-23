@@ -1,11 +1,14 @@
 import { useState } from "react";
 import type { FC } from "react";
 
-const Sidebar: FC = () => {
+interface SidebarProps {
+  selectedColor: string | null;
+  onChangeSelectedColor: (value: string | null) => void;
+}
+
+const Sidebar: FC<SidebarProps> = ({ selectedColor, onChangeSelectedColor }) => {
   // Mock filter states
   const [price, setPrice] = useState<[number, number]>([13.99, 25.99]);
-  const [selectedColor, setSelectedColor] = useState<string>("blue");
-  console.log(selectedColor);
 
   return (
     <aside className="w-64 space-y-4 hidden lg:block">
@@ -66,20 +69,22 @@ const Sidebar: FC = () => {
       {/* COLOR */}
       <div className="bg-[#F6F7F8] p-4 rounded-sm shadow-sm">
         <h3 className="font-bold text-gray-800 mb-4">COLOR</h3>
-        <div className="flex gap-3">
+        <div className="flex items-center gap-3 flex-wrap">
+          
           {[
-            { name: "blue", color: "#3b82f6", selected: true },
-            { name: "red", color: "#ef4444", selected: false },
-            { name: "black", color: "#000000", selected: false },
-            { name: "yellow", color: "#eab308", selected: false },
-            { name: "pink", color: "#ec4899", selected: false },
-            { name: "beige", color: "#f5f5dc", selected: false }
+            { name: "blue", color: "#3b82f6" },
+            { name: "red", color: "#ef4444" },
+            { name: "black", color: "#000000" },
+            { name: "yellow", color: "#eab308" },
+            { name: "pink", color: "#ec4899" },
+            { name: "beige", color: "#f5f5dc" }
           ].map((colorOption) => (
             <button
               key={colorOption.name}
-              className="w-6 h-6 rounded-full border-2 border-gray-300 hover:border-blue-300"
+              aria-label={`color ${colorOption.name}`}
+              className={`w-6 h-6 rounded-full border-2 ${selectedColor === colorOption.name ? "border-sky-400" : "border-gray-300"}`}
               style={{ backgroundColor: colorOption.color }}
-              onClick={() => setSelectedColor(colorOption.name)}
+              onClick={() => onChangeSelectedColor(colorOption.name)}
             />
           ))}
         </div>
