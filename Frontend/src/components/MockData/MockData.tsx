@@ -5,7 +5,7 @@ import SmallBag from "../../assets/products/SmallBag.png";
 import NikeAir2 from "../../assets/products/NikeAir2.png";
 import NikeAir3 from "../../assets/products/NikeAir3.png";
 import NikeXPro from "../../assets/products/NikeXPro.png";
-import jordens from "../../assets/products/jordens.png";
+import Jordens from "../../assets/products/Jordens.png";
 import JordensAir from "../../assets/products/JordensAir.png";
 
 // Sample product data
@@ -101,7 +101,7 @@ export const sampleProducts = [
     {
       id: "9",
       name: "Jordens",
-      image: jordens,
+      image: Jordens,
       currentPrice: 299.43,
       originalPrice: 534.33,
       color:"red",
